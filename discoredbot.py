@@ -787,17 +787,17 @@ async def join_voice_channel(ctx, channel_id: str = None):
     
     if channel_id is None:
         msg = await ctx.send("Usage: `-jvc <channel_id>`")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         return
     
     if not channel_id.isdigit():
         msg = await ctx.send("Channel ID must be a number dork.")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         return
     
     if not ctx.guild:
         msg = await ctx.send("only in servers bud")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         return
     
     channel_id_int = int(channel_id)
@@ -807,12 +807,12 @@ async def join_voice_channel(ctx, channel_id: str = None):
     
     if not voice_channel:
         msg = await ctx.send(f"couldnt find channel with id `{channel_id}`")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         return
     
     if not isinstance(voice_channel, discord.VoiceChannel):
         msg = await ctx.send(f"`{voice_channel.name}` is not a voice channel dork")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         return
     
     try:
@@ -824,7 +824,7 @@ async def join_voice_channel(ctx, channel_id: str = None):
         await voice_channel.connect()
         
         msg = await ctx.send(f"✅ joined voice channel `{voice_channel.name}`")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         
         print(f"[JVC DEBUG] Successfully joined voice channel: {voice_channel.name} ({channel_id_int})")
         
@@ -833,12 +833,12 @@ async def join_voice_channel(ctx, channel_id: str = None):
             msg = await ctx.send("already in a vc bro")
         else:
             msg = await ctx.send(f"error joining vc: {str(e)[:100]}")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         print(f"[JVC DEBUG] Error joining voice channel: {e}")
         
     except Exception as e:
         msg = await ctx.send(f"couldnt join vc: {str(e)[:100]}")
-        store_response(ctx, msg, persistent=True)
+        store_response(ctx, msg)
         print(f"[JVC DEBUG] Unexpected error: {e}")
 
 
@@ -1206,7 +1206,7 @@ async def on_command_completion(ctx):
 
 # Run the bot.
 # Replace the token below with your actual user account token.
-TOKEN = ''
+TOKEN = 'MTQ5MzkxMDMxNTE1MzM1ODg0OA.GWMx1o.azKfUCmBICIfFVihUnLsXWP0EYW8jye_w6xWbQ'
 
 if __name__ == "__main__":
     try:
