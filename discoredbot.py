@@ -1206,7 +1206,7 @@ async def on_command_completion(ctx):
 
 # Run the bot.
 # Replace the token below with your actual user account token.
-TOKEN = 'MTQ5MzkxMDMxNTE1MzM1ODg0OA.GWMx1o.azKfUCmBICIfFVihUnLsXWP0EYW8jye_w6xWbQ'
+TOKEN = ''
 
 if __name__ == "__main__":
     try:
